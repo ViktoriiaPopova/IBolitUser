@@ -1,0 +1,99 @@
+@charset "ISO-8859-1";
+
+/*Common Styling*/
+body{
+	font-family: 'Ubuntu', sans-serif;
+}
+nav.navbar{
+	background-image: linear-gradient(to top, #0ba360 0%, #3cba92 100%)!important;
+}
+.nav-link{
+	font-weight: 600;
+	text-decoration: none;
+	font-size: 1.2rem;
+	color: #C9E2CB;
+	transition: 0.4s;
+}
+.nav-link:hover{
+	color: #3b543d;
+}
+.nav-link.active{
+	color: #3b543d;
+}
+.light-green{
+	background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+}
+.text-green{
+	color: #647d66;
+	font-weight: 600;
+}
+.text-dark-green{
+	color: #3b543d;
+	font-weight: 600;
+}
+.contact-footer{
+	background-image: linear-gradient(15deg, #13547a 0%, #80d0c7 100%);
+}
+.footer-link{
+	text-decoration: none!important;
+	color: #C9E2CB;
+}
+.footer-link:hover{
+	color: #68ba6f;
+}
+.footer-copyright{
+	background-image: radial-gradient( circle 897px at 91.9% 47.6%,  rgba(31,64,75,1) 0%, rgba(50,150,136,1) 56.8%, rgba(30,95,92,1) 90% );
+}
+.custom-height{
+	min-height: 80vh;
+}
+.header{
+	font-weight: 600;
+	color: #0D3728;
+}
+.success-btn{
+	background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC 51%, #02AAB0 100%);
+}
+.danger-btn{
+	background-image: linear-gradient(to right, #cb2d3e 0%, #ef473a 51%, #cb2d3e 100%);
+}
+.btn-grad {
+	border: 0;
+    margin: 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: .5s;
+    background-size: 200% auto;
+    color: #fff;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+}
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+.logout-btn{
+	border: 0;
+}
+
+/*Home Page Styling*/
+/* Οι εικόνες πρέπει να ανταποκρίνονται σε όλες τις συσκευές (responsive) */
+.carousel-inner img {
+	width: 100%;
+	height: 100%;
+}
+.carousel-height{
+	height: 900px!important;
+}
+/*Ρύθμιση των ταμπέλων πάνω στο carousel έτσι ώστε να μην είναι κάτω αλλά στο κέντρο περίπου (δεδομένου ότι έχει οριστεί με ποσοστό θα είναι responsive) και το μαύρο background΄να διαφανίζει*/
+.efe {
+	background: rgba(0, 0, 0, 0.5);
+	margin-bottom: 22%;
+}
+
+.card.items:hover, .card-header{
+	background-image: linear-gradient(60deg, #96deda 0%, #50c9c3 100%);
+}

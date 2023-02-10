@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	<!--Fontawesome icons for footer-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="style/styles.css">
+	<title>IBolit</title>
+</head>
+<body>
+
+		<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
+		<nav class="navbar navbar-expand-sm navbar-light">
+			<div class="container-fluid">						
+				<a href="./Home.jsp" class="navbar-brand">
+					<img src="pictures/icon.png" alt="Logo" style="width:40px;">
+				</a>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
+					<span class="navbar-toggler-icon"></span>
+				</button>				
+				<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarResp">						
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" href="./Home.jsp">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./AboutUs.jsp">About Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./Appointment.jsp">Appointment</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./ContactUs.jsp">Contact Us</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="./Login.jsp">Login</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="./Register.jsp">Register</a>
+						</li>										
+					</ul>					
+				</div>
+			</div>
+		</nav>
+		
+		
+		<div class="container-fluid py-5">
+			<div class="row custom-height d-flex justify-content-center align-items-center">
+				<div class="col-4">
+					<div class="card">
+						<div class="card-header">
+							<h3 class="header">Login</h3>
+						</div>
+						<div class="card-body">
+							<form class="needs-validation" method="POST" action="/login" novalidate>
+				                <label for="email" class="form-label">Email: </label>
+				                <input type="email" class="form-control" id="email" name="email" placeholder="Insert your email" required>
+				                <div class="invalid-feedback">Your email is wrong.</div>
+				                
+				                <label for="password" class="form-label my-3">Password: </label>
+				                <input type="password" class="form-control" id="password" name="password" placeholder="Insert your password" required>		                
+				                <button type="submit" name="login-btn" class="btn-grad success-btn my-3">Login</button>
+				            </form>
+						</div>
+					</div>					
+				</div>
+			</div>
+		</div>
+		
+		<!-- JavaScript for disabling form submissions if there are invalid fields -->
+		<script>
+			// Self-executing function
+			(function () {
+				"use strict";
+				window.addEventListener(
+					"load",
+					function () {
+					// Fetch all the forms we want to apply custom Bootstrap validation styles to
+					var forms = document.getElementsByClassName("needs-validation");
+					// Loop over them and prevent submission
+					var validation = Array.prototype.filter.call(forms, function (
+						form
+						){
+							form.addEventListener(
+			 					"submit",
+								function (event) {
+									if (form.checkValidity() === false) {
+									event.preventDefault();
+									event.stopPropagation();
+								}
+								form.classList.add("was-validated");
+								},
+								false
+							);
+						});
+					},
+					false
+				);
+			})();
+		</script>
+		
+		<!-- <div class="container-fluid py-5 light-green">
+			<div class="row">
+				<div class="col-12">
+				
+				</div>
+			</div>
+		</div> -->
+		
+		<!--Στοιχεία Επικοινωνίας-->
+		<div class="container-fluid py-4 contact-footer">
+			<div class="row">
+				<div class="col">
+					<h2 class="text-center text-dark-green">Contact Information</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--Geolocation-->
+				<div class="col-md-6 col-xs-12 my-5">
+					<!--Ενσωματομένος χάρτης-->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.6136818025857!2d23.787996115325125!3d38.03278477971337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a198edaaf054d1%3A0x182534b46eb6e4d1!2zzpHOs8-BzqzPhs-Jzr0gMywgzpzOsc-Bzr_Pjc-DzrkgMTUxIDIz!5e0!3m2!1sel!2sgr!4v1621437421649!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12 my-5 text-center">
+					<!--Στοιχεία επικοινωνίας με το ΕΟΔΥ Αθήνας. Οι κλάσεις "fas..." είναι για τα εικονίδια τοποθεσίας και τηλεφώνου. Τα πέρνουμε από την βιβλιοθήκη fontawesome.-->
+					<h5>Athens EODY</h5>
+					<p class="pt-2"><i class="fas fa-map-marker-alt"></i> Agrafon 3-5, Marousi, Postcode 151-23</p>
+					<p><i class="fas fa-phone"></i> 210 5212000</p>
+				</div>
+			</div>
+		</div>
+	
+		<!--Footer-->
+		<div class="container-fluid footer-copyright">
+			<footer>
+				<div class="row">
+					<div class="col my-4 text-center">
+						<p class="text-white">Copyright &copy; 2023<a class="footer-link" href="https://www.ds.unipi.gr/"> Students of Digital Systems</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+</body>
+</html>
