@@ -1,7 +1,8 @@
-package com.ibolit.ibolituser.model;
+package com.ibolit.ibolituser.repositories;
 
 import java.util.List;
 
+import com.ibolit.ibolituser.model.SimpleUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
