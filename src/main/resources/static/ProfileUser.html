@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="style/styles.css">
 	<title>IBolit</title>
 	<!--JQuery component-->
-	<script src="jquery-3.6.1.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -53,19 +53,34 @@
 			</div>
 		</nav>
 		
-		<button id="seeMyAppointment">My Appointments</button>
+		<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">appointment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each:"a:${appointment}">
+      <td th:text="${a.appointment}"></td>
+      <td th:text="${a.id_appointment}"></td>
+    </tr>
+  </tbody>
+</table>
+		
+		<button onclick="btnAppointment();">My Appointments</button>
 		<script>
-			
-			if($("seeMyAppointment").valid()){
-				e.preventDefault();
+			function btnAppointment(){
 				$.ajax({
-					url:"[[${@enviroment.getProperty('api.base.path')}]]/HelloController/list",
-					type:"GET",
-					dataType:"JSON",
+					url:"/getAppointmentData/listAll",
+					method:"GET",
 					success:function(data)
 					{alert("ok");						
 						
-					}});
+					},
+					error: function(data) {
+               		alert("error");
+            }});
 				};
 		</script>
 		<table id="tbl-appointment" class="table table-striped">
