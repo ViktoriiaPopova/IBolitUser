@@ -11,61 +11,112 @@
 	<link rel="stylesheet" href="style/styles.css">
 	<title>IBolit</title>
 	<!--JQuery component-->
-	<script src="jquery-3.6.1.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
 </head>
-<body>
-
+<body onload=saveUserId()>
+		<script> function saveUserId() {
+		const params = new Proxy(new URLSearchParams(window.location.search), {
+  get: (searchParams, prop) => searchParams.get(prop),
+});
+	var id = params.userId
+	if (id) {
+		console.log("saving to localstorage" + id)
+		localStorage.setItem("userId", id)
+	}
+	
+		}
+	</script>
+	
 		<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
+<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
 		<nav class="navbar navbar-expand-sm navbar-light">
 			<div class="container-fluid">						
 				<a href="./Home.jsp" class="navbar-brand">
 					<img src="pictures/icon.png" alt="Logo" style="width:40px;">
 				</a>
+				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
 					<span class="navbar-toggler-icon"></span>
 				</button>				
 				<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarResp">						
 					<ul class="nav">
 						<li class="nav-item">
-							<a class="nav-link" href="./Home.jsp">Home</a>
+							<a class="nav-link active" href="./Home.html">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="./AboutUs.jsp">About Us</a>
+							<a class="nav-link" href="./AboutUs.html">About Us</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="./Appointment.jsp">Appointment</a>
-						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="./ContactUs.jsp">Contact Us</a>
+							<a class="nav-link" href="./ContactUs.html">Contact Us</a>
 						</li>
+									
+							<li class="nav-item">
+								<a class="nav-link" href="./Login.html">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./RegistrationForm.html">Register</a>
+							</li>
+						
 							<li class="nav-item dropdown">
-								<a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">				  		  
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+						  		  
 								</a>
 								<div class="dropdown-menu">
 									<a class="dropdown-item" href="./UserProfile.jsp">My Profile</a>
 									<a class="dropdown-item" href="./UserAppointments.jsp">My Appointments</a>
-									<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>  						     		
+									<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>
+											     						     		
 								</div>								
-							</li>									
+							</li>															
 					</ul>					
 				</div>
 			</div>
 		</nav>
 		
-		<button id="seeMyAppointment">My Appointments</button>
+		<section style="margin-left: 20%;margin-right: 20%;">
+		<table class="table">
+  <thead style="background-color:aliceblue;">
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody id="appointments_body">
+	  <h1>Your appointments will be displayed here</h1>
+  </tbody>
+</table>
+		<button class="btn btn-success" onclick="btnAppointment();">My Appointments</button>
+		</section>
 		<script>
-			
-			if($("seeMyAppointment").valid()){
-				e.preventDefault();
+			function btnAppointment(){
+				let userId = localStorage.getItem("userId")
+				console.log("userid from local storage " + userId)
 				$.ajax({
-					url:"[[${@enviroment.getProperty('api.base.path')}]]/HelloController/list",
-					type:"GET",
-					dataType:"JSON",
+					url:"/getAppointmentData/listAll/" + userId,
+					method:"GET",
 					success:function(data)
-					{alert("ok");						
+					{
+						console.log(data)
+						var body = document.getElementById("appointments_body")
+						var appointmentRows = []
+						for(appointment of data) {							
+							var speciality = document.createElement("td")
+							speciality.appendChild(document.createTextNode(appointment.speciality))
+							var dates = document.createElement("td")
+							dates.appendChild(document.createTextNode(appointment.dates))
+							var row = document.createElement("tr")
+							row.appendChild(speciality)
+							row.appendChild(dates)
+							appointmentRows.push(row)
+						}
+						body.replaceChildren(...appointmentRows)			
 						
-					}});
+					},
+					error: function(data) {
+               		alert("error");
+            }});
 				};
 		</script>
 		<table id="tbl-appointment" class="table table-striped">

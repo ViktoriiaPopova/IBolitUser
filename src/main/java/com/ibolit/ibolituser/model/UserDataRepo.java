@@ -13,9 +13,10 @@ public interface UserDataRepo extends JpaRepository<SimpleUser, Integer>{
 	  SimpleUser findByEmail(String email);
 	  Boolean existsByEmail(String email);
 	  Boolean existsByPassword(String password);
-	static List<SimpleUser> listAll() {
+	//delete ??static List<SimpleUser> listAll() {
 		// TODO Auto-generated method stub
-		return null;
-	}
+		//return null;
+	//}
+	Boolean existsBySurname(String surname);
 	
 }
