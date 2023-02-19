@@ -4,7 +4,7 @@
 ?> -->
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 	<head>
 	
@@ -89,7 +89,7 @@
 						
 						<!-- Παρακάτω ακολουθεί η φόρμα σύνδεσης. Ο χρήστης καλείται να συμπληρώσει τα παρακάτω πεδία, προκειμένου να συνδεθεί στον προσωπικό του λογαριασμό. -->
 						<div class="card-body">
-							<form class="needs-validation" method="POST" action="/login" novalidate>
+							<form class="needs-validation" method="POST" th:action="@{/login}" novalidate>
 				                
 				                <label for="email" class="form-label">Email: </label>
 				                <input type="email" class="form-control" id="email" name="email" placeholder="Insert your email" required>

@@ -71,9 +71,13 @@ nav.navbar{
     display: block;
 }
 .btn-grad:hover {
+	border: 0;
     background-position: right center;
     color: #fff;
     text-decoration: none;
+}
+.btn-grad:active, .btn-grad:focus, .btn-grad::focus-visible, .btn-grad:focus-within{
+	border: 0!important;
 }
 .logout-btn{
 	border: 0;

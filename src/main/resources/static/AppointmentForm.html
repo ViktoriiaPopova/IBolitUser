@@ -83,58 +83,76 @@
 			</div>
 		</nav>
 		
-		<section style="margin-top:50px;margin-left:20%; margin-right: 20%;">
-			<h3>Please choose the specialist and available dates</h3>
+		<div class="container-fluid py-5">
+			<div class="row custom-height d-flex justify-content-center align-items-center">
+				<div class="col-4">
+					<div class="card">
+						
+						<div class="card-header">
+							<h3 class="header">Make your Appointment</h3>
+						</div>
+						
+						<!-- Παρακάτω ακολουθεί η φόρμα σύνδεσης. Ο χρήστης καλείται να συμπληρώσει τα παρακάτω πεδία, προκειμένου να συνδεθεί στον προσωπικό του λογαριασμό. -->
+						<div class="card-body">
+							<form class="needs-validation" method="POST" th:action="@{/makeAppointment}" novalidate>
+				                
+				                <h4>Please choose the specialist and available dates</h4>
 			
-			<!-- Η φόρμα που πρέπει να συμπληρωθεί, ώστε ο χρήστης να μπορέσει να κλείσει ένα ραντεβού στην κλινική. -->
-			<form id="makeAppointment" action="makeAppointment" method="POST">
+								<!-- Η φόρμα που πρέπει να συμπληρωθεί, ώστε ο χρήστης να μπορέσει να κλείσει ένα ραντεβού στην κλινική. -->
+			
   				
-  				<div class="form-group">
-    				<label for="exampleFormControlSelect1">Select a doctor</label>
-   					<select class="form-control" id="exampleFormControlSelect1" name="speciality">
-      					<option>Cardiologist</option>
-      					<option>Pediatrician</option>
-      					<option>Stomatologist</option>
-      					<option>Ophthalmologist</option>
-      					<option>Neurologist</option>
-    				</select>
-  				</div>
-    
-    			<div class="form-group">
-    				<label for="exampleFormControlSelect1">Select an available dates</label>
-    				<select class="form-control" id="datetime-dpd" name="dates">
-      					<option>Monday 11:00-12:00</option>
-      					<option>Tuesday 14:00-16:00</option>
-      					<option>Wednesday 16:00-17:00</option>
-      					<option>Friday 10:00-12:00</option>
-      					<option>Sunday 09:00-11:00</option>
-    				</select>
-  				</div>
-  				
-  				<div class="form-group">
-    				<label for="exampleFormControlTextarea1">Leave a comment (optional)</label>
-    				<textarea class="form-control" id="exampleFormControlTextarea1" name="comment_user" rows="3"></textarea>
-  					<input class="btn btn-success" id="appointment-success" type="submit" value="Make an appointment">
-  					
-  					<!-- <?php 
-						if(isset($_SESSION['loggedin']) && $_SESSION['loggenin'] == true) {
-							<input class="btn btn-success" type="submit" value="Make an appointment">
-							echo 'Done! Your appointment was just made!'; 
-						}
-					?> -->
+				  				<div class="form-group">
+				    				<label for="exampleFormControlSelect1">Select a doctor</label>
+				   					<select class="form-control" id="exampleFormControlSelect1" name="speciality">
+				      					<option>Cardiologist</option>
+				      					<option>Pediatrician</option>
+				      					<option>Stomatologist</option>
+				      					<option>Ophthalmologist</option>
+				      					<option>Neurologist</option>
+				    				</select>
+				  				</div>
+				    
+				    			<div class="form-group">
+				    				<label for="exampleFormControlSelect1">Select an available dates</label>
+				    				<select class="form-control" id="datetime-dpd" name="dates">
+				      					<option>Monday 11:00-12:00</option>
+				      					<option>Tuesday 14:00-16:00</option>
+				      					<option>Wednesday 16:00-17:00</option>
+				      					<option>Friday 10:00-12:00</option>
+				      					<option>Sunday 09:00-11:00</option>
+				    				</select>
+				  				</div>
+				  				
+				  				<div class="form-group">
+				    				<label for="exampleFormControlTextarea1">Leave a comment (optional)</label>
+				    				<textarea class="form-control" id="exampleFormControlTextarea1" name="comment_user" rows="3"></textarea>
+				  									  					
+				  					<!-- <?php 
+										if(isset($_SESSION['loggedin']) && $_SESSION['loggenin'] == true) {
+											<input class="btn btn-success" type="submit" value="Make an appointment">
+											echo 'Done! Your appointment was just made!'; 
+										}
+									?> -->
+									
+									<script type="text/javascript">
+				    					document.getElementById("appointment-success").onclick = function () {
+				    						var element = document.getElementById( "datetime-dpd" );
+				    						element.remove( element.selectedIndex );
+				       						location.href = "./Home.html";
+				    					};
+									</script>
+				  					
+				  				</div>
+				  				                
+				                <button id="appointment-success" type="submit" name="appointment-btn" class="btn-grad success-btn my-3">Make an Appointment</button>				                
+				            
+				            </form>
+						</div>
 					
-					<script type="text/javascript">
-    					document.getElementById("appointment-success").onclick = function () {
-    						var element = document.getElementById( "datetime-dpd" );
-    						element.remove( element.selectedIndex );
-       						location.href = "./Home.html";
-    					};
-					</script>
-  					
-  				</div>
-			
-			</form>
-		</section>
+					</div>					
+				</div>
+			</div>
+		</div>
 		
 		<!-- Στοιχεία Επικοινωνίας -->
 		<div class="container-fluid py-4 contact-footer">

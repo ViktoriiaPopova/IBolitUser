@@ -89,7 +89,7 @@
 						
 						<!-- Παρακάτω ακολουθεί η φόρμα εγγραφής. Ο χρήστης καλείται να συμπληρώσει τα παρακάτω πεδία, προκειμένου να δημιουργηθεί ο προσωπικός του λογαριασμός. -->
 						<div class="card-body">
-							<form  action="ProfileUser" method="post">
+							<form  th:action="@{/ProfileUser}" method="post">
 								<label for="name" class="form-label">Name: </label>
 				                <input type="text" class="form-control" id="name" name="name" placeholder="Insert your name" required>
 				                
@@ -123,12 +123,12 @@
 				           			}
 				                ?> -->
 				                
-				                <script type="text/javascript">
+				                <!--<script type="text/javascript">
     								document.getElementById("register-success").onclick = function () {
        									alert("Your registration was succesful!");
     									location.href = "./Home.html";
     								};
-								</script>
+								</script>-->
 				            
 				            </form>
 						</div>
