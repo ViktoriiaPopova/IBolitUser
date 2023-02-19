@@ -51,9 +51,9 @@ public class HelloController {
 		}else {
 			userRepository.save(user);		
 			//Redirect to user profile
-			 return new RedirectView("ProfileUser.html");
+			 return new RedirectView("UserProfile.html");
 		}
-		 return new RedirectView("RegistrationForm.html");
+		return new RedirectView("RegistrationForm.html");
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -62,9 +62,9 @@ public class HelloController {
 		final Boolean userPasswordExists = userRepository.existsByPassword(user.getPassword());
 		SimpleUser existingUser = userRepository.findByEmail(user.getEmail());
 		if (userEmailExists && userPasswordExists) {
-			return new RedirectView("ProfileUser.html?userId=" + existingUser.getIdUser());
+			return new RedirectView("UserProfile.html?userId=" + existingUser.getIdUser());
 		} else {
-			return  new RedirectView("login.html");
+			return  new RedirectView("Login.html");
 		}
 	}
 	
@@ -81,7 +81,7 @@ public class HelloController {
 		SimpleUser user = userRepository.findById(userId).get();
 		appointment.setSimpleUser(user);
 		appointmentRepository.save(appointment);
-		return new RedirectView("../ProfileUser.html");
+		return new RedirectView("../UserProfile.html");
 	}
 
 
