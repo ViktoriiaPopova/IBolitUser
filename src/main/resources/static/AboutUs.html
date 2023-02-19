@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	
+		<meta charset="ISO-8859-1">
+		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		
+		<!-- Fontawesome icons for footer -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+		
+		<link rel="stylesheet" href="style/styles.css">
+		
+		<title>IBolit</title>
+
+	</head>
+
+	<body>
+		
+		<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
+		<nav class="navbar navbar-expand-sm navbar-light">
+			<div class="container-fluid">						
+				
+				<a href="./Home.html" class="navbar-brand">
+					<img src="pictures/icon.png" alt="Logo" style="width:40px;">
+				</a>
+				
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
+					<span class="navbar-toggler-icon"></span>
+				</button>				
+				
+				<div class="collapse navbar-collapse d-flex justify-content-end" id="navbarResp">						
+					<ul class="nav">
+						<li class="nav-item">
+							<a class="nav-link" href="./Home.html">Home</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="./AppointmentForm.html">Appointment</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link active" href="./AboutUs.html">About Us</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="./ContactUs.html">Contact Us</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="./RegistrationForm.html">Register</a>
+						</li>
+						
+						<li class="nav-item">
+							<a class="nav-link" href="./Login.html">Login</a>
+						</li>
+						
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"></a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" href="./UserProfile.html">My Profile</a>
+								<a class="dropdown-item" href="./UserAppointments.html">My Appointments</a>
+								<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>			     						     		
+							</div>								
+						</li>
+																
+					</ul>					
+				</div>
+			</div>
+		</nav>
+		
+		
+		<div class="container-fluid py-5">
+			<div class="row">
+				<div class="col-12 d-flex justify-content-center">
+					<p class="lead w-75">
+						Our services cover the entire region of Athens and our doctors are ready to deal with every case that concerns the primary care medicine wether inside and outside of our facilities, by always being ready to visite patients at their respective home or hotel room upon request. Our secretaries organize each case, from the request for medical help, to the opening of a complete medical record for each of our patients and the assisting in filling all the proper paperwork for the insurance companies, by keeping an adequate electronic archive.
+					</p>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container-fluid py-4 light-green">
+			
+			<div class="row">
+				<div class="col-md-12 my-5">
+					<h2 class="text-center text-green">Our Specialists</h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card items">
+						<!--Η κάθε κάρτα έχει δύο σκέλη: στο πάνω σκέλος έχει τοποθετηθεί μία εικόνα και το σώμα έχει μία συνοπτική περιγραφή με τίτλο. Ο τίτλος είναι με heading μεγέθους 5, το display-5 είναι ανάλογο του <h5>.-->					
+						<img class="card-img-top p-4" src="pictures/doctor.png" alt="Health4">
+						<div class="card-body">							
+							<blockquote class="blockquote mb-0">
+						      <p>Specializes in lasik surgery and has over 10 years of experience in his field.</p>
+						      <footer class="blockquote-footer">Ai C. Yeoo, Ophthalmologist</footer>
+						    </blockquote>
+						</div>				
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card items">							
+						<img class="card-img-top p-4" src="pictures/doctor.png" alt="Health5">
+						<div class="card-body">							
+							<blockquote class="blockquote mb-0">
+						     	<p>First your heart, then your valuables! Mwah!</p>
+						     	<footer class="blockquote-footer">Annie Takaradachi, Cardiologist</footer>
+						    </blockquote>
+						</div>
+					</div>
+				</div>
+				
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card items">						
+						<img class="card-img-top p-4" src="pictures/doctor.png" alt="Health6">
+						<div class="card-body">
+							<blockquote class="blockquote mb-0">
+						     	<p>An experienced neuro-surgeon, having a PHD in Neuro-Oncology and having studied at the Massachusetts Institute of Technology.</p>
+						     	<footer class="blockquote-footer">Toomatch K. Offi, Neurologist</footer>
+						    </blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<!-- Στοιχεία Επικοινωνίας -->
+		<div class="container-fluid py-4 contact-footer">
+			
+			<div class="row">
+				<div class="col">
+					<h2 class="text-center text-dark-green">Contact Information</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				
+				<!--Geolocation-->
+				<div class="col-md-6 col-xs-12 my-5">
+					<!-- Ενσωματομένος χάρτης -->
+					<div class="embed-responsive embed-responsive-16by9">
+						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3142.6136818025857!2d23.787996115325125!3d38.03278477971337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14a198edaaf054d1%3A0x182534b46eb6e4d1!2zzpHOs8-BzqzPhs-Jzr0gMywgzpzOsc-Bzr_Pjc-DzrkgMTUxIDIz!5e0!3m2!1sel!2sgr!4v1621437421649!5m2!1sel!2sgr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+					</div>
+				</div>
+
+				<div class="col-md-6 col-xs-12 my-5 text-center">
+					<!-- Στοιχεία επικοινωνίας με το ΕΟΔΥ Αθήνας. Οι κλάσεις "fas..." είναι για τα εικονίδια τοποθεσίας και τηλεφώνου. Τα παίρνουμε από την βιβλιοθήκη fontawesome. -->
+					<h5>Athens EODY</h5>
+					<p class="pt-2"><i class="fas fa-map-marker-alt"></i> Agrafon 3-5, Marousi, Postcode 151-23</p>
+					<p><i class="fas fa-phone"></i> 210 5212000</p>
+				</div>
+			
+			</div>
+		
+		</div>
+	
+		<!--Footer-->
+		<div class="container-fluid footer-copyright">
+			<footer>
+				<div class="row">
+					<div class="col my-4 text-center">
+						<p class="text-white">Copyright &copy; 2023<a class="footer-link" href="https://www.ds.unipi.gr/"> Students of Digital Systems</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+	</body>
+</html>
