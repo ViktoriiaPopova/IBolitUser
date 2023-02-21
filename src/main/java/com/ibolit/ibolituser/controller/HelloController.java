@@ -6,6 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Example;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -23,6 +26,8 @@ import org.springframework.web.servlet.view.RedirectView;
 import com.ibolit.ibolituser.model.AppointmentData;
 import com.ibolit.ibolituser.model.AppointmentDataRepo;
 import com.ibolit.ibolituser.model.SimpleUser;
+import com.ibolit.ibolituser.model.SpecialityData;
+import com.ibolit.ibolituser.model.SpecialityDataRepo;
 import com.ibolit.ibolituser.model.UserDataRepo;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,6 +44,8 @@ public class HelloController {
 	private UserDataRepo userRepository;
 	@Autowired
 	private AppointmentDataRepo appointmentRepository;
+	@Autowired
+	private SpecialityDataRepo specialityRepository;
 	
 	//Registration happens here
 	@RequestMapping(value = "/ProfileUser", method = RequestMethod.POST)
@@ -58,11 +65,13 @@ public class HelloController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public RedirectView getUserData(SimpleUser user) {
-		final Boolean userEmailExists = userRepository.existsByEmail(user.getEmail());
-		final Boolean userPasswordExists = userRepository.existsByPassword(user.getPassword());
-		SimpleUser existingUser = userRepository.findByEmail(user.getEmail());
-		if (userEmailExists && userPasswordExists) {
-			return new RedirectView("ProfileUser.html?userId=" + existingUser.getIdUser());
+		System.out.println(user);
+		//final Boolean userPasswordExists = userRepository.existsByPassword(user.getPassword());
+		//before security:
+		//SimpleUser existingUser = userRepository.findByEmail(user.getEmail());
+		Optional<SimpleUser> existingUser = userRepository.findByEmail(user.getEmail());
+		if (existingUser.isPresent()) {
+			return new RedirectView("ProfileUser.html?userId=" + existingUser.get().getIdUser());
 		} else {
 			return  new RedirectView("login.html");
 		}
@@ -83,6 +92,30 @@ public class HelloController {
 		appointmentRepository.save(appointment);
 		return new RedirectView("../ProfileUser.html");
 	}
+//Speciality Operations to display on home.html page
+//	@RequestMapping(value="/searchSpecialist/searchSpecialist/{searchValue}",method = RequestMethod.GET)
+//	public SpecialityData searchSpecialist(@PathVariable String searchValue){
+//		SpecialityData searchSpecialist = specialityRepository.findByspecialityName(searchValue);
+//		if (searchSpecialist!=null) {
+//			System.out.println("There is such a specialist at out clinic!");
+//		}else {
+//			System.out.println("There is no such a specialist at our clinic!");
+//		}
+	//	return searchSpecialist;
+//	}
+	@RequestMapping(value="/searchSpecialist/searchSpecialist/{searchValue}",method = RequestMethod.GET)
+	ResponseEntity<String> response(@PathVariable String searchValue) {
+		SpecialityData searchSpecialist = specialityRepository.findBySpecialityName(searchValue.trim().toLowerCase());
+		System.out.println(searchValue);
 
+		if(searchSpecialist !=null) {
+			return new ResponseEntity<String>(
 
+					"There is such a specialist in our clinic, please make sure you logged on page to make an appointment.", new HttpHeaders(), HttpStatus.OK);
+		}
+		else {
+			return new ResponseEntity<String>(
+					"We are sorry, but there is NO such a specialist in our clinic!", new HttpHeaders(), HttpStatus.BAD_REQUEST);
+		}
+	}
 }

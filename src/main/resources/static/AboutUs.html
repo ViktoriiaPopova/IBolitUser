@@ -12,12 +12,14 @@
 	<title>IBolit</title>
 </head>
 <body>
+
 		<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
 		<nav class="navbar navbar-expand-sm navbar-light">
 			<div class="container-fluid">						
 				<a href="./home.html" class="navbar-brand">
 					<img src="icon.png" alt="Logo" style="width:40px;">
 				</a>
+				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
 					<span class="navbar-toggler-icon"></span>
 				</button>				
@@ -27,75 +29,86 @@
 							<a class="nav-link" href="./home.html">Home</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="./AboutUs.html">About Us</a>
+							<a class="nav-link active" href="./AboutUs.html">About Us</a>
 						</li>
 						<li class="nav-item">
 							<a class="nav-link" href="./AboutUs.html">Contact Us</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" href="./Login.html">Login</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="./RegistrationForm.html">Register</a>
-						</li>										
+						</li>		
+							<li class="nav-item">
+								<a class="nav-link" href="./Login.html">Login</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="./RegistrationForm.html">Register</a>
+							</li>
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+								</a>
+								<div class="dropdown-menu">
+									<a class="dropdown-item" href="./ProfileUser.html">My Profile</a>
+									<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>		     						     		
+								</div>								
+							</li>									
 					</ul>					
 				</div>
 			</div>
 		</nav>
+		
+		
 		<div class="container-fluid py-5">
-			<div class="row custom-height d-flex justify-content-center align-items-center">
-				<div class="col-4">
-					<div class="card">
-						<div class="card-header">
-							<h3 class="header">Login</h3>
-						</div>
-						<div class="card-body">
-							<form class="needs-validation" method="POST" action="/login" novalidate>
-				                <label for="email" class="form-label">Email: </label>
-				                <input type="email" class="form-control" id="email" name="email" placeholder="Insert your email" required>
-				                <div class="invalid-feedback">Your email is wrong.</div>
-				                
-				                <label for="password" class="form-label my-3">Password: </label>
-				                <input type="password" class="form-control" id="password" name="password" placeholder="Insert your password" required>		                
-				                <button type="submit" name="login-btn" class="btn-grad success-btn my-3">Login</button>
-				            </form>
-						</div>
-					</div>					
+			<div class="row">
+				<div class="col-12 d-flex justify-content-center">
+					<p class="lead w-75">
+						Our services cover the entire region of Athens and our doctors are ready to deal with every case that concerns the primary care medicine in and out of our facilities by visiting patients at home or in the hotel room always upon request. Secretaries organize every case from the request for medical help to the opening of a full medical record for each patient and the assisting in filling all the proper paperwork for the insurance companies by keeping an adequate electronic archive.
+					</p>
 				</div>
 			</div>
 		</div>
 		
-		<!-- JavaScript for disabling form submissions if there are invalid fields -->
-		<script>
-			// Self-executing function
-			(function () {
-				"use strict";
-				window.addEventListener(
-					"load",
-					function () {
-					// Fetch all the forms we want to apply custom Bootstrap validation styles to
-					var forms = document.getElementsByClassName("needs-validation");
-					// Loop over them and prevent submission
-					var validation = Array.prototype.filter.call(forms, function (
-						form
-						){
-							form.addEventListener(
-			 					"submit",
-								function (event) {
-									if (form.checkValidity() === false) {
-									event.preventDefault();
-									event.stopPropagation();
-								}
-								form.classList.add("was-validated");
-								},
-								false
-							);
-						});
-					},
-					false
-				);
-			})();
-		</script>
+		<div class="container-fluid py-4 light-green">
+			<div class="row">
+				<div class="col-md-12 my-5">
+					<h2 class="text-center text-green">Our Specialists</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card items">
+						<!--Η κάθε κάρτα έχει δύο σκέλη: στο πάνω σκέλος έχει τοποθετηθεί μία εικόνα και το σώμα έχει μία συνοπτική περιγραφή με τίτλο. Ο τίτλος είναι με heading μεγέθους 5, το display-5 είναι ανάλογο του <h5>.-->					
+						<img class="card-img-top p-4" src="doctor.png" alt="Health4">
+						<div class="card-body">							
+							<blockquote class="blockquote mb-0">
+						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+						      <footer class="blockquote-footer">Jeniffer Smith</footer>
+						    </blockquote>
+						</div>				
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card items">							
+						<img class="card-img-top p-4" src="doctor.png" alt="Health5">
+						<div class="card-body">							
+							<blockquote class="blockquote mb-0">
+						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+						      <footer class="blockquote-footer">John Smith</footer>
+						    </blockquote>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-xs-12 my-5">
+					<div class="card items">						
+						<img class="card-img-top p-4" src="doctor.png" alt="Health6">
+						<div class="card-body">
+							<blockquote class="blockquote mb-0">
+						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+						      <footer class="blockquote-footer">Elizabeth Smith</footer>
+						    </blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
 		<!--Στοιχεία Επικοινωνίας-->
 		<div class="container-fluid py-4 contact-footer">
 			<div class="row">
@@ -121,6 +134,7 @@
 				</div>
 			</div>
 		</div>
+	
 		<!--Footer-->
 		<div class="container-fluid footer-copyright">
 			<footer>
@@ -131,5 +145,6 @@
 				</div>
 			</footer>
 		</div>
+
 </body>
 </html>

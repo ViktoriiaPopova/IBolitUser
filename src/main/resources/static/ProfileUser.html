@@ -12,7 +12,6 @@
 	<title>IBolit</title>
 	<!--JQuery component-->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
 </head>
 <body onload=saveUserId()>
 		<script> function saveUserId() {
@@ -27,12 +26,11 @@
 	
 		}
 	</script>
-	
 		<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
 <!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
 		<nav class="navbar navbar-expand-sm navbar-light">
 			<div class="container-fluid">						
-				<a href="./Home.jsp" class="navbar-brand">
+				<a href="./home.html" class="navbar-brand">
 					<img src="pictures/icon.png" alt="Logo" style="width:40px;">
 				</a>
 				
@@ -50,8 +48,7 @@
 						<li class="nav-item">
 						<li class="nav-item">
 							<a class="nav-link" href="./ContactUs.html">Contact Us</a>
-						</li>
-									
+						</li>					
 							<li class="nav-item">
 								<a class="nav-link" href="./Login.html">Login</a>
 							</li>
@@ -64,18 +61,17 @@
 						  		  
 								</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="./UserProfile.jsp">My Profile</a>
-									<a class="dropdown-item" href="./UserAppointments.jsp">My Appointments</a>
-									<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>
-											     						     		
+									<a class="dropdown-item" href="./ProfileUser.html">My Profile</a>
+									<a class="dropdown-item" href="./AppointmentForm.html">My Appointments</a>
+									<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>	     						     		
 								</div>								
 							</li>															
 					</ul>					
 				</div>
 			</div>
 		</nav>
-		
 		<section style="margin-left: 20%;margin-right: 20%;">
+			<button class="btn btn-success"><a href="AppointmentForm.html">Make An Appointment</a></button>
 		<table class="table">
   <thead style="background-color:aliceblue;">
     <tr>

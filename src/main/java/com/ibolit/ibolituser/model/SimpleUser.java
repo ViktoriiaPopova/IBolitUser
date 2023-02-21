@@ -1,11 +1,19 @@
 package com.ibolit.ibolituser.model;
 
+import java.util.Collection;
 import java.util.List;
 
+import javax.management.relation.Role;
+
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,7 +21,8 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="user")
-public class SimpleUser {
+public class SimpleUser implements UserDetails{
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="idUser")
@@ -28,14 +37,16 @@ public class SimpleUser {
 	private String city;
 	@Column(name="address", length=50, nullable=false, unique=false)
 	private String address;
-	@Column(name="email", length=50, nullable=false, unique=false)
+	@Column(name="email", length=50, nullable=false, unique=true)
 	private String email;
 	@Column(name="username", length=50, nullable=false, unique=false)
 	private String userName;
 	@Column(name="password", length=50, nullable=false, unique=false)
 	private String password;
-	@Column(name="role", length=50, nullable=false, unique=false)
-	private String role;
+	//@Column(name="role", length=50, nullable=false, unique=false)
+	//private String role;
+	@Enumerated(EnumType.STRING)
+	private Role role;
 	
 	public Integer getIdUser() {
 		return idUser;
@@ -91,14 +102,50 @@ public class SimpleUser {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getRole() {
-		return role;
+	//public String getRole() {
+//		return role;
+//	}
+//	public void setRole(String role) {
+//		this.role = role;
+//	}
+	// Spring Security Methods
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		//instead of role = getRoleName
+		return List.of(new SimpleGrantedAuthority(role.getRoleName()));
 	}
-	public void setRole(String role) {
-		this.role = role;
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return email;
 	}
-	
-	
-	
+	@Override
+	public boolean isAccountNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		// TODO Auto-generated method stub
+		return true;
+	}
+	//???? delete if in case we don't use jwt security
+	public static Object builder() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+		
 
 	}

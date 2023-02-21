@@ -10,13 +10,17 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<link rel="stylesheet" href="/style/styles.css">
 	<title>IBolit</title>
+	<!--JQuery component-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
+
 <body>
+
 		<!-- Η μπάρα πλοήγησης με εικονίδιο στην αρχή -->
 		<nav class="navbar navbar-expand-sm navbar-light">
 			<div class="container-fluid">						
-				<a href="./Home.jsp" class="navbar-brand">
-					<img src="pictures/icon.png" alt="Logo" style="width:40px;">
+				<a href="./Home.html" class="navbar-brand">
+					<img src="icon.png" alt="Logo" style="width:40px;">
 				</a>
 				
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResp">
@@ -47,8 +51,8 @@
 						  		  
 								</a>
 								<div class="dropdown-menu">
-									<a class="dropdown-item" href="./UserProfile.jsp">My Profile</a>
-									<a class="dropdown-item" href="./UserAppointments.jsp">My Appointments</a>
+									<a class="dropdown-item" href="./ProfileUser.html">My Profile</a>
+									<a class="dropdown-item" href="./AppointmentForm.html">My Appointments</a>
 									<button class="dropdown-item logout-btn" id="logout" name="logout">Logout</button>
 											     						     		
 								</div>								
@@ -63,30 +67,30 @@
 
 				<!-- Οι δείκτες κάτω στο κέντρο του Carousel σε μία λίστα με το πρώτο ενεργό για αφετηρία-->
 				<ul class="carousel-indicators">
-					<li data-target="pictures/health" data-slide-to="0" class="active"></li>
-					<li data-target="pictures/health" data-slide-to="1"></li>
-					<li data-target="pictures/health" data-slide-to="2"></li>					
+					<li data-target="health1.jpg" data-slide-to="0" class="active"></li>
+					<li data-target="health2.jpg" data-slide-to="1"></li>
+					<li data-target="health3.jpg" data-slide-to="2"></li>					
 				</ul>
 
 				<!-- Το slideshow με εικόνες και μικρά κείμενα που βρίσκονται στο div και είναι ημιδιάφανα (το ορίσαμε στο style) και τοποθετημένα όσο πιο κεντρικά γίνεται.
 				Οι εικόνες έχουν πλάτος 100%-->
 				<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="d-block w-100 carousel-height" src="pictures/health1.jpg" alt="Health1">
+						<img class="d-block w-100 carousel-height" src="health1.jpg" alt="Health1">
 						<div class="efe carousel-caption d-none d-md-block">
 							<h3>Welcome to IBolit Health Center</h3>
 							<p>Our only purpose is to take care of you!</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100 carousel-height" src="pictures/health2.jpg" alt="Health2">
+						<img class="d-block w-100 carousel-height" src="health2.jpg" alt="Health2">
 						<div class="efe carousel-caption d-none d-md-block">
 							<h3>Your health is our priority!</h3>
 							<p>Our doctors are the best across their field!</p>
 						</div>
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100 carousel-height" src="pictures/health3.jpg" alt="Health3">
+						<img class="d-block w-100 carousel-height" src="health3.jpg" alt="Health3">
 						<div class="efe carousel-caption d-none d-md-block">
 							<h3>Make an appointment right now!</h3>
 							<p>We guarantee low prices & high quality services!</p>
@@ -102,40 +106,42 @@
 					<span class="carousel-control-next-icon"></span>
 				</a>			
 		</div>
-		<section style="display:flex;flex-direction: row;">
+		<section style="margin:20px;display: flex; padding:20px; justify-content: center; background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);">
+			<h2>Login Into The System To Make An Appointment</h2>
+			</section>
+		<section style="display:flex;flex-direction: row;padding:30px 0px; justify-content: space-around">
 			<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="AppointmentForm.html" class="btn btn-primary">Make an apointment</a>
+	  <section style="display: flex; flex-direction:row">
+		 <h5 class="card-title">Cardiologist</h5><img style="margin:0px 5px;width: 12%; height: 12%;" src="https://img.icons8.com/fluency/256/filled-like.png">
+	  </section>
+    <p class="card-text"> They examine you, take your medical history and prescribe fitting medication. They have all the necessary equipment to perform medical procedures at home, such as ECG, heart ultrasound, heart rate and blood pressure Holter monitoring.</p>
   </div>
 </div>
 		<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="AppointmentForm.html" class="btn btn-primary">Make an appointment</a>
+    <section style="display: flex; flex-direction:row">
+		 <h5 class="card-title">Medicine physician</h5><img style="margin:0px 5px;width: 12%; height: 12%;" src="https://img.icons8.com/cotton/256/doctors-bag--v3.png">
+	  </section>
+    <p class="card-text">If necessary, s/he will indicate the tests that can also be done at home by qualified nursing staff and will remain at your disposal for advice or for another visit once you are fully recovered. If you have a personal doctor, s/he will be fully informed by our physician.</p>
   </div>
 </div>
 		<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="AppointmentForm.html" class="btn btn-primary">Make an appointment</a>
+      <section style="display: flex; flex-direction:row">
+		 <h5 class="card-title">Pediatrician</h5><img style="margin:0px 5px;width: 12%; height: 12%;" src="https://img.icons8.com/color/256/playing-children-skin-type-1.png">
+	  </section>
+    <p class="card-text">They examine children and infants,have all the necessary equipment to perform procedures at home. SOS Pediatricians are present the last 22 years and treat at home from simple cases of flu to urgent health problems of our young patients.</p>
   </div>
 </div>
 		<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="AppointmentForm.html" class="btn btn-primary">Make an appointment</a>
+   <section style="display: flex; flex-direction:row">
+		 <h5 class="card-title">Dentist</h5><img style="margin:0px 5px;width: 12%; height: 12%;" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/256/external-teeth-allergy-flaticons-lineal-color-flat-icons.png">
+	  </section>
+    <p class="card-text">Dentist takes your medical history, examines you and is able to perform many medical operations with the modern portable equipment, such as cleaning, extractions, fillings and whitening. In addition to home visits,whenever this is needed</p>
   </div>
 </div>
-		
 		</section>
 <!--Επόμενο container με ανοιχτό πράσινο background με padding top και bottom 5-->
 		<div class="container-fluid py-5 light-green">
@@ -151,6 +157,32 @@ All the above are managed from our medical and paramedical staff in the basis of
 				</div>
 			</div>
 		</div>
+		<!-- Search bar -->
+	<section id="searchBar">
+	<div class="input-group mb-3">
+		<input class="form-control" id="specialityName" onkeyup="search_speciality()" type="text" name="search" placeholder="Search the specialist you need.."aria-describedby="basic-addon2">  
+	 <div class="input-group-append">   
+   		<input class="btn btn-success" class="btn btn-outline-secondary" type="submit" onclick="findSpecialist();" value="Find">
+     </div>
+    </div>
+    </section>
+		<script>
+			function findSpecialist(){
+				let searchValue = document.getElementById("specialityName").value
+				//console.log("speciality from local storage " + searchValue)
+				$.ajax({
+					url:"/searchSpecialist/searchSpecialist/" + searchValue ,
+					method:"GET",
+					//contentType: 'application/json; charset=utf-8',
+					success: function(data){		
+					alert(data);					
+					},
+					error: function(data) {
+						console.log(data)
+               		alert(data.responseText);
+            }});
+				};
+		</script>
 		
 		
 		<!--Καρτέλες με πληροφορίες σχετικά με την διαδικασία του εμβολιασμού με hover για να γίνοται γαλάζιο.-->
@@ -164,7 +196,7 @@ All the above are managed from our medical and paramedical staff in the basis of
 				<div class="col-md-4 col-xs-12 my-5">
 					<div class="card items">
 						<!--Η κάθε κάρτα έχει δύο σκέλη: στο πάνω σκέλος έχει τοποθετηθεί μία εικόνα και το σώμα έχει μία συνοπτική περιγραφή με τίτλο. Ο τίτλος είναι με heading μεγέθους 5, το display-5 είναι ανάλογο του <h5>.-->					
-						<img class="card-img-top" src="pictures/female-transparent.png" alt="Health4">
+						<img class="card-img-top" src="female-transparent.png" alt="Health3">
 						<div class="card-body">							
 							<blockquote class="blockquote mb-0">
 						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -175,7 +207,7 @@ All the above are managed from our medical and paramedical staff in the basis of
 				</div>
 				<div class="col-md-4 col-xs-12 my-5">
 					<div class="card items">							
-						<img class="card-img-top" src="pictures/male-transparent.png" alt="Health5">
+						<img class="card-img-top" src="male-transparent.png" alt="Health3">
 						<div class="card-body">							
 							<blockquote class="blockquote mb-0">
 						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -186,7 +218,7 @@ All the above are managed from our medical and paramedical staff in the basis of
 				</div>
 				<div class="col-md-4 col-xs-12 my-5">
 					<div class="card items">						
-						<img class="card-img-top" src="pictures/female-transparent.png" alt="Health6">
+						<img class="card-img-top" src="female-transparent.png" alt="Health3">
 						<div class="card-body">
 							<blockquote class="blockquote mb-0">
 						      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
@@ -235,7 +267,5 @@ All the above are managed from our medical and paramedical staff in the basis of
 				</div>
 			</footer>
 		</div>
-
-
 </body>
 </html>
